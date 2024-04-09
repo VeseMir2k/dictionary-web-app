@@ -1,7 +1,8 @@
 import './App.css';
+import Header from './components/header';
 
-function App() {
-  return <h1 className="text-headingL font-mono">Hello world!</h1>;
-}
+const App = () => {
+  return <Header />;
+};
 
 export default App;
