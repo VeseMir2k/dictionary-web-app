@@ -1,5 +1,6 @@
 import Logo from './Logo';
 import SelectFonts from './SelectFonts';
+import SwitchTheme from './SwitchTheme';
 import VerticalDivider from './VerticalDivider';
 
 const Header = () => {
@@ -8,6 +9,7 @@ const Header = () => {
       <Logo />
       <SelectFonts />
       <VerticalDivider />
+      <SwitchTheme />
     </header>
   );
 };

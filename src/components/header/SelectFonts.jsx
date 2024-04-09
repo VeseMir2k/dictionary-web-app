@@ -3,7 +3,7 @@ import { useState } from 'react';
 const SelectFonts = () => {
   const [isShow, setIsShow] = useState(false);
 
-  const showOptions = () => {
+  const toggleShow = () => {
     setIsShow((prevIsShow) => !prevIsShow);
   };
 
@@ -11,7 +11,7 @@ const SelectFonts = () => {
 
   return (
     <div className="custom-select">
-      <button className="flex" onClick={showOptions}>
+      <button className="flex" onClick={toggleShow}>
         Sans Serif <img src="./icon-arrow-down.svg" alt="icon arrow down" />
       </button>
       <ul className={`${showOptionsClass}`}>
