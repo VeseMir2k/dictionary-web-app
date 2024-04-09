@@ -44,6 +44,16 @@ export default {
         }
       ]
     },
+    colors: {
+      white: '#fff',
+      black: '#000',
+      purple: '#A445ED',
+      bgLight: '#fff',
+      dot: '#8F19E8',
+      dividerLight: '#e9e9e9',
+      textColorLight_1: '#2d2d2d',
+      textColorLight_2: '#757575'
+    },
     extend: {}
   },
   plugins: []
