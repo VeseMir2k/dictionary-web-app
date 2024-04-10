@@ -1,4 +1,5 @@
 import Logo from './Logo';
+import Search from './Search';
 import SelectFonts from './SelectFonts';
 import SwitchTheme from './SwitchTheme';
 import VerticalDivider from './VerticalDivider';
@@ -10,6 +11,7 @@ const Header = () => {
       <SelectFonts />
       <VerticalDivider />
       <SwitchTheme />
+      <Search />
     </header>
   );
 };
