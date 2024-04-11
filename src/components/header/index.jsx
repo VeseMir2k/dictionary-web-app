@@ -6,11 +6,13 @@ import VerticalDivider from './VerticalDivider';
 
 const Header = () => {
   return (
-    <header className="flex">
-      <Logo />
-      <SelectFonts />
-      <VerticalDivider />
-      <SwitchTheme />
+    <header>
+      <div className="flex items-center justify-end">
+        <Logo />
+        <SelectFonts />
+        <VerticalDivider />
+        <SwitchTheme />
+      </div>
       <Search />
     </header>
   );

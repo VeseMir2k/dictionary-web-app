@@ -4,4 +4,8 @@
 
 @layer base {
   @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Inter:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+  body {
+    padding: 24px;
+  }
 }
