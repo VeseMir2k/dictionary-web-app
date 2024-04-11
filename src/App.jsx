@@ -1,8 +1,13 @@
 import './App.css';
 import Header from './components/header';
+import { FontProvider } from './context/AppContext';
 
 const App = () => {
-  return <Header />;
+  return (
+    <FontProvider>
+      <Header />
+    </FontProvider>
+  );
 };
 
 export default App;
