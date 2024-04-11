@@ -21,6 +21,14 @@ export const FontProvider = ({ children }) => {
   return <FontContext.Provider value={{ setFont }}>{children}</FontContext.Provider>;
 };
 
+export const AppProvider = ({ children }) => {
+  return <FontProvider>{children}</FontProvider>;
+};
+
 FontProvider.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
+AppProvider.propTypes = {
   children: PropTypes.node.isRequired
 };
