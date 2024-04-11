@@ -9,11 +9,15 @@ export const FontProvider = ({ children }) => {
   useEffect(() => {
     const fonts = ['sans', 'serif', 'mono'];
 
-    fonts.forEach((item) => document.body.classList.remove(`font-${item}`));
+    fonts.forEach((item) => {
+      document.body.classList.remove(`font-${item}`);
+      document.querySelector(`.${item}`).classList.remove('active');
+    });
 
     fonts.forEach((item) => {
       if (font === item) {
         document.body.classList.add(`font-${item}`);
+        document.querySelector(`.${item}`).classList.add('active');
       }
     });
   }, [font]);

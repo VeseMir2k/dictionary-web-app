@@ -6,9 +6,9 @@ const SelectFontsOptions = ({ isShow }) => {
   const { setFont } = useContext(FontContext);
 
   const options = [
-    { id: 'sans', text: 'Sans Serif', class: 'font-sans' },
-    { id: 'serif', text: 'Serif', class: 'font-serif' },
-    { id: 'mono', text: 'Mono', class: 'font-mono' }
+    { id: 'sans', text: 'Sans Serif', class: 'sans font-sans' },
+    { id: 'serif', text: 'Serif', class: 'serif font-serif' },
+    { id: 'mono', text: 'Mono', class: 'mono font-mono' }
   ];
 
   // const setShowActive = (event) => {
