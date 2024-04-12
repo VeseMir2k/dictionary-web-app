@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
+import { addActiveClass, removeActivClass, removeFontClass, setFontClass } from '../util';
 
 export const FontContext = createContext();
 
@@ -10,14 +11,18 @@ export const FontProvider = ({ children }) => {
     const fonts = ['sans', 'serif', 'mono'];
 
     fonts.forEach((item) => {
-      document.body.classList.remove(`font-${item}`);
-      document.querySelector(`.${item}`).classList.remove('active');
+      const optionFontElement = document.querySelector(`.${item}`);
+
+      removeFontClass(`font-${item}`);
+      removeActivClass(optionFontElement);
     });
 
     fonts.forEach((item) => {
       if (font === item) {
-        document.body.classList.add(`font-${item}`);
-        document.querySelector(`.${item}`).classList.add('active');
+        const optionFontElement = document.querySelector(`.${item}`);
+
+        setFontClass(`font-${item}`);
+        addActiveClass(optionFontElement);
       }
     });
   }, [font]);
