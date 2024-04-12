@@ -13,3 +13,7 @@ export const setFontClass = (fontClass) => {
 export const removeFontClass = (fontClass) => {
   document.body.classList.remove(fontClass);
 };
+
+export const setNameFontButton = (element, fontName) => {
+  element.textContent = fontName;
+};

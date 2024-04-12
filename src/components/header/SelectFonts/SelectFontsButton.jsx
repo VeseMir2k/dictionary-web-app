@@ -7,8 +7,10 @@ const SelectFontsButton = ({ setIsShow }) => {
   };
 
   return (
-    <button className="flex text-[14px] font-bold" onClick={(event) => toggleShow(event)}>
-      Sans Serif
+    <button
+      className="font-button flex text-[14px] font-bold"
+      onClick={(event) => toggleShow(event)}>
+      <span className="font-button__name">Sans Serif</span>
       <img className="ml-[16px] w-[12px]" src="./icon-arrow-down.svg" alt="icon arrow down" />
     </button>
   );

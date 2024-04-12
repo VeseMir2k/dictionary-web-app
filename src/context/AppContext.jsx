@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
-import { addActiveClass, removeActivClass, removeFontClass, setFontClass } from '../util';
+import {
+  addActiveClass,
+  removeActivClass,
+  removeFontClass,
+  setFontClass,
+  setNameFontButton
+} from '../util';
 
 export const FontContext = createContext();
 
@@ -9,6 +15,8 @@ export const FontProvider = ({ children }) => {
 
   useEffect(() => {
     const fonts = ['sans', 'serif', 'mono'];
+    const fontsName = ['Sans Serif', 'Serif', 'Mono'];
+    const fontButtonNameElement = document.querySelector('.font-button .font-button__name');
 
     fonts.forEach((item) => {
       const optionFontElement = document.querySelector(`.${item}`);
@@ -17,10 +25,10 @@ export const FontProvider = ({ children }) => {
       removeActivClass(optionFontElement);
     });
 
-    fonts.forEach((item) => {
+    fonts.forEach((item, index) => {
       if (font === item) {
         const optionFontElement = document.querySelector(`.${item}`);
-
+        setNameFontButton(fontButtonNameElement, fontsName[index]);
         setFontClass(`font-${item}`);
         addActiveClass(optionFontElement);
       }
