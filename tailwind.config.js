@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'selector',
   theme: {
     fontFamily: {
       sans: ['"Inter"', 'sans-serif'],
@@ -23,6 +24,7 @@ export default {
       white: '#fff',
       purple: '#A445ED',
       background: '#fff',
+      backgroundDark: '#050505',
       dot: '#8F19E8',
       divider: '#e9e9e9',
       'text-color-primary': '#2d2d2d',

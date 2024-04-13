@@ -9,6 +9,7 @@ import {
 } from '../util';
 
 export const FontContext = createContext();
+export const ThemeContext = createContext();
 
 export const FontProvider = ({ children }) => {
   const [font, setFont] = useState('sans');
@@ -38,11 +39,38 @@ export const FontProvider = ({ children }) => {
   return <FontContext.Provider value={{ setFont }}>{children}</FontContext.Provider>;
 };
 
+export const ThemeProvider = ({ children }) => {
+  const { theme, setTheme } = useState('light');
+
+  useEffect(() => {
+    // if (
+    //   localStorage.theme === 'dark' ||
+    //   (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    // ) {
+    //   document.documentElement.classList.add('dark');
+    // } else {
+    //   document.documentElement.classList.remove('dark');
+    // }
+    // localStorage.theme = 'light';
+    // localStorage.theme = 'dark';
+    // localStorage.removeItem('theme');
+  }, []);
+
+  return <ThemeContext.Provider value={(theme, setTheme)}>{children}</ThemeContext.Provider>;
+};
+
 export const AppProvider = ({ children }) => {
-  return <FontProvider>{children}</FontProvider>;
+  return (
+    <FontProvider>
+      <ThemeProvider>{children}</ThemeProvider>
+    </FontProvider>
+  );
 };
 
 FontProvider.propTypes = {
+  children: PropTypes.node.isRequired
+};
+ThemeProvider.propTypes = {
   children: PropTypes.node.isRequired
 };
 
