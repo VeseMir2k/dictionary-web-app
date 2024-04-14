@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
-import {
-  addActiveClass,
-  removeActivClass,
-  removeFontClass,
-  setFontClass,
-  setNameFontButton
-} from '../util';
+import { addClass, removeClass, setNameFontButton } from '../util';
 
 export const FontContext = createContext();
 export const ThemeContext = createContext();
@@ -21,17 +15,16 @@ export const FontProvider = ({ children }) => {
 
     fonts.forEach((item) => {
       const optionFontElement = document.querySelector(`.${item}`);
-
-      removeFontClass(`font-${item}`);
-      removeActivClass(optionFontElement);
+      removeClass(document.body, `font-${item}`);
+      removeClass(optionFontElement, 'active');
     });
 
     fonts.forEach((item, index) => {
       if (font === item) {
         const optionFontElement = document.querySelector(`.${item}`);
         setNameFontButton(fontButtonNameElement, fontsName[index]);
-        setFontClass(`font-${item}`);
-        addActiveClass(optionFontElement);
+        addClass(document.body, `font-${item}`);
+        addClass(optionFontElement, 'active');
       }
     });
   }, [font]);
@@ -40,23 +33,21 @@ export const FontProvider = ({ children }) => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const { theme, setTheme } = useState('light');
+  const [isDark, setIsDark] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDark((prevState) => !prevState);
+  };
 
   useEffect(() => {
-    // if (
-    //   localStorage.theme === 'dark' ||
-    //   (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    // ) {
-    //   document.documentElement.classList.add('dark');
-    // } else {
-    //   document.documentElement.classList.remove('dark');
-    // }
-    // localStorage.theme = 'light';
-    // localStorage.theme = 'dark';
-    // localStorage.removeItem('theme');
-  }, []);
+    if (isDark) {
+      addClass(document.body, 'dark');
+    } else {
+      removeClass(document.body, 'dark');
+    }
+  }, [isDark]);
 
-  return <ThemeContext.Provider value={(theme, setTheme)}>{children}</ThemeContext.Provider>;
+  return <ThemeContext.Provider value={{ isDark, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 
 export const AppProvider = ({ children }) => {
