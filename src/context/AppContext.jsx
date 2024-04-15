@@ -4,6 +4,8 @@ import { addClass, removeClass, setNameFontButton } from '../util';
 
 export const FontContext = createContext();
 export const ThemeContext = createContext();
+export const SearchContext = createContext();
+export const ApiContext = createContext();
 
 export const FontProvider = ({ children }) => {
   const [font, setFont] = useState('sans');
@@ -50,10 +52,40 @@ export const ThemeProvider = ({ children }) => {
   return <ThemeContext.Provider value={{ isDark, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 
+export const SearchProvider = ({ children }) => {
+  const [valueInput, setValueInput] = useState('');
+  const [apiResults, setApiResults] = useState('');
+
+  const getValueInput = (event) => {
+    setValueInput(event.target.value);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${valueInput !== '' || 'keyboard'}`
+      );
+      const json = await data.json();
+      console.log(json);
+      setApiResults(json);
+    };
+
+    fetchData();
+  }, [valueInput]);
+
+  return (
+    <SearchContext.Provider value={{ valueInput, getValueInput }}>
+      {children}
+    </SearchContext.Provider>
+  );
+};
+
 export const AppProvider = ({ children }) => {
   return (
     <FontProvider>
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider>
+        <SearchProvider>{children}</SearchProvider>
+      </ThemeProvider>
     </FontProvider>
   );
 };
@@ -61,7 +93,12 @@ export const AppProvider = ({ children }) => {
 FontProvider.propTypes = {
   children: PropTypes.node.isRequired
 };
+
 ThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
+SearchProvider.propTypes = {
   children: PropTypes.node.isRequired
 };
 

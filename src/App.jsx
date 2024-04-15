@@ -6,6 +6,7 @@ const App = () => {
   return (
     <AppProvider>
       <Header />
+      <div className="content"></div>
     </AppProvider>
   );
 };
