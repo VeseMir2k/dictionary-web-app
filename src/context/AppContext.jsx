@@ -5,7 +5,6 @@ import { addClass, removeClass, setNameFontButton } from '../util';
 export const FontContext = createContext();
 export const ThemeContext = createContext();
 export const SearchContext = createContext();
-export const ApiContext = createContext();
 
 export const FontProvider = ({ children }) => {
   const [font, setFont] = useState('sans');
@@ -53,7 +52,7 @@ export const ThemeProvider = ({ children }) => {
 };
 
 export const SearchProvider = ({ children }) => {
-  const [valueInput, setValueInput] = useState('');
+  const [valueInput, setValueInput] = useState('keyboard');
   const [apiResults, setApiResults] = useState('');
 
   const getValueInput = (event) => {
@@ -62,9 +61,7 @@ export const SearchProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${valueInput !== '' || 'keyboard'}`
-      );
+      const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${valueInput}`);
       const json = await data.json();
       console.log(json);
       setApiResults(json);
@@ -74,7 +71,7 @@ export const SearchProvider = ({ children }) => {
   }, [valueInput]);
 
   return (
-    <SearchContext.Provider value={{ valueInput, getValueInput }}>
+    <SearchContext.Provider value={{ valueInput, getValueInput, apiResults }}>
       {children}
     </SearchContext.Provider>
   );

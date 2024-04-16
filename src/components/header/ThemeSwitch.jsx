@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/AppContext';
 
-const SwitchTheme = () => {
+const ThemeSwitch = () => {
   const { toggleTheme } = useContext(ThemeContext);
 
   const handleButton = () => {
@@ -18,4 +18,4 @@ const SwitchTheme = () => {
   );
 };
 
-export default SwitchTheme;
+export default ThemeSwitch;
