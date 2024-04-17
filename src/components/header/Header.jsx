@@ -1,6 +1,6 @@
 import Logo from './Logo';
 import Search from './search/Search';
-import SelectFonts from './SelectFonts/SelectFonts';
+import SelectFonts from './selectFonts/SelectFonts';
 import ThemeSwitch from './ThemeSwitch';
 import VerticalDivider from './VerticalDivider';
 

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useEffect, useState } from 'react';
 import { addClass, removeClass, setNameFontButton } from '../util';
 
 export const FontContext = createContext();
@@ -53,25 +53,38 @@ export const ThemeProvider = ({ children }) => {
 
 export const SearchProvider = ({ children }) => {
   const [valueInput, setValueInput] = useState('keyboard');
-  const [apiResults, setApiResults] = useState('');
+  const [apiResults, setApiResults] = useState([]);
 
   const getValueInput = (event) => {
     setValueInput(event.target.value);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${valueInput}`);
-      const json = await data.json();
-      console.log(json);
-      setApiResults(json);
-    };
-
-    fetchData();
+  const fetchData = useCallback(async () => {
+    const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${valueInput}`);
+    const json = await data.json();
+    setApiResults(json);
   }, [valueInput]);
 
+  const handleEnterKeyDown = useCallback(
+    (event) => {
+      if (event.key === 'Enter') {
+        fetchData();
+      }
+    },
+    [fetchData]
+  );
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleEnterKeyDown);
+    return () => window.removeEventListener('keydown', handleEnterKeyDown);
+  }, [handleEnterKeyDown]);
+
   return (
-    <SearchContext.Provider value={{ valueInput, getValueInput, apiResults }}>
+    <SearchContext.Provider value={{ fetchData, valueInput, getValueInput, apiResults }}>
       {children}
     </SearchContext.Provider>
   );

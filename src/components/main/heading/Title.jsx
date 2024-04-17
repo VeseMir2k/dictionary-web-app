@@ -4,7 +4,9 @@ import { SearchContext } from '../../../context/AppContext';
 const Title = () => {
   const { apiResults } = useContext(SearchContext);
 
-  return <h1 className="mb-[8px] mt-[24px] text-headingMobileL">{}</h1>;
+  const title = apiResults == [] ? 'pip' : 'dsa';
+
+  return <h1 className="mb-[8px] mt-[24px] text-headingMobileL">{title}</h1>;
 };
 
 export default Title;

@@ -21,6 +21,7 @@ export default {
       headingMobileL: ['32px', { lineHeight: '39px', fontWeight: '700' }]
     },
     colors: {
+      transparent: 'transparent',
       white: '#fff',
       purple: '#A445ED',
       background: '#fff',
