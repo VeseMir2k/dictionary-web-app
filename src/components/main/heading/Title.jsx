@@ -1,12 +1,11 @@
-import { useContext } from 'react';
-import { SearchContext } from '../../../context/AppContext';
+import PropTypes from 'prop-types';
 
-const Title = () => {
-  const { apiResults } = useContext(SearchContext);
-
-  const title = apiResults == [] ? 'pip' : 'dsa';
-
+const Title = ({ title }) => {
   return <h1 className="mb-[8px] mt-[24px] text-headingMobileL">{title}</h1>;
+};
+
+Title.propTypes = {
+  title: PropTypes.string.isRequired
 };
 
 export default Title;
