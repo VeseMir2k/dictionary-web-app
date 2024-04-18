@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 
-const Phonetic = ({ phonetics }) => {
-  const phonetic = phonetics.filter((item) => item.text.length > 0 && item.audio.length > 0);
-
-  return <>{phonetic[0].text}</>;
+const Phonetic = ({ phoneticText }) => {
+  return <p>{phoneticText}</p>;
 };
 
 Phonetic.propTypes = {
-  phonetics: PropTypes.array.isRequired
+  phoneticText: PropTypes.string.isRequired
 };
 
 export default Phonetic;

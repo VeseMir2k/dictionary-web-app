@@ -1,10 +1,16 @@
+import { useContext } from 'react';
+import { SearchContext } from '../../context/AppContext';
 import Heading from './heading/Heading';
 
 const Main = () => {
+  const { apiResults } = useContext(SearchContext);
+
   return (
-    <main>
-      <Heading />
-    </main>
+    !apiResults.length || (
+      <main>
+        <Heading />
+      </main>
+    )
   );
 };
 
