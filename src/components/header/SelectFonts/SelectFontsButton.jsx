@@ -10,7 +10,7 @@ const SelectFontsButton = ({ setIsShow }) => {
     <button
       className="font-button flex text-[14px] font-bold"
       onClick={(event) => toggleShow(event)}>
-      <span className="font-button__name">Sans Serif</span>
+      <span className="font-button__name dark:text-white">Sans Serif</span>
       <img className="ml-[16px] w-[12px]" src="./icon-arrow-down.svg" alt="icon arrow down" />
     </button>
   );

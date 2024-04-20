@@ -26,8 +26,11 @@ export default {
       purple: '#A445ED',
       background: '#fff',
       backgroundDark: '#050505',
+      backgroundInputDark: '#1f1f1f',
+      backgroundInput: '#f4f4f4',
       dot: '#8F19E8',
       divider: '#e9e9e9',
+      iconColor: '#838383',
       'text-color-primary': '#2d2d2d',
       'text-color-secondary': '#757575'
     },

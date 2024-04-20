@@ -1,4 +1,4 @@
-import Logo from './Logo';
+import LogoSvg from './LogoSvg';
 import Search from './search/Search';
 import SelectFonts from './selectFonts/SelectFonts';
 import ThemeSwitch from './ThemeSwitch';
@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header>
       <div className="flex items-center justify-end">
-        <Logo />
+        <LogoSvg />
         <SelectFonts />
         <VerticalDivider />
         <ThemeSwitch />
