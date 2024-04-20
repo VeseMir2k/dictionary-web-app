@@ -12,8 +12,7 @@ const Heading = () => {
   );
 
   return (
-    <>
-      {console.log(phonetic)}
+    <div className="mt-[24px] grid">
       <Title title={apiResults[0].word} />
       {!phonetic.length || (
         <>
@@ -21,7 +20,7 @@ const Heading = () => {
           <Audio phoneticAudio={phonetic[0].audio} />
         </>
       )}
-    </>
+    </div>
   );
 };
 

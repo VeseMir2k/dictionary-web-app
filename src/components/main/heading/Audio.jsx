@@ -34,8 +34,10 @@ const Audio = ({ phoneticAudio }) => {
         src={phoneticAudio}
         onEnded={handleAudioEnd}
       />
-      <button className="h-[48px] w-[48px] rounded-[50%] bg-purple" onClick={handlePlayButton}>
-        <FontAwesomeIcon icon={isPlay ? faStop : faPlay} />
+      <button
+        className="col-start-2 col-end-3 row-start-1 row-end-3 flex h-[48px] w-[48px]  items-center justify-center self-center justify-self-end rounded-[50%] bg-purple"
+        onClick={handlePlayButton}>
+        <FontAwesomeIcon className="text-[17px]" icon={isPlay ? faStop : faPlay} />
       </button>
     </>
   );
