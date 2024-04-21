@@ -24,15 +24,15 @@ export default {
       transparent: 'transparent',
       white: '#fff',
       purple: '#A445ED',
-      background: '#fff',
-      backgroundDark: '#050505',
-      backgroundInputDark: '#1f1f1f',
-      backgroundInput: '#f4f4f4',
+      backgroundPrimary: '#ffffff',
+      backgroundSecondary: '#f4f4f4',
+      backgroundPrimaryDark: '#050505',
+      backgroundSecondaryDark: '#1f1f1f',
       dot: '#8F19E8',
       divider: '#e9e9e9',
       iconColor: '#838383',
-      'text-color-primary': '#2d2d2d',
-      'text-color-secondary': '#757575'
+      textColorPrimary: '#2d2d2d',
+      textColorSecondary: '#757575'
     },
     extend: {}
   },
