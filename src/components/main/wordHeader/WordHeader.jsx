@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { SearchContext } from '../../../context/AppContext';
-import Audio from './Audio';
-import Phonetic from './Phonetic';
-import Title from './Title';
+import WordAudio from './WordAudio';
+import WordPhonetic from './WordPhonetic';
+import WordTitle from './WordTitle';
 
-const Heading = () => {
+const WordHeader = () => {
   const { apiResults } = useContext(SearchContext);
 
   const phonetic = apiResults[0].phonetics.filter(
@@ -13,15 +13,15 @@ const Heading = () => {
 
   return (
     <div className="mt-[24px] grid">
-      <Title title={apiResults[0].word} />
+      <WordTitle title={apiResults[0].word} />
       {!phonetic.length || (
         <>
-          <Phonetic phoneticText={phonetic[0].text} />
-          <Audio phoneticAudio={phonetic[0].audio} />
+          <WordPhonetic phoneticText={phonetic[0].text} />
+          <WordAudio phoneticAudio={phonetic[0].audio} />
         </>
       )}
     </div>
   );
 };
 
-export default Heading;
+export default WordHeader;

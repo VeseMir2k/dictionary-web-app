@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Phonetic = ({ phoneticText }) => {
+const WordPhonetic = ({ phoneticText }) => {
   return (
     <p className="col-start-1 col-end-2 row-start-2 row-end-3 font-sans text-bodyM text-purple">
       {phoneticText}
@@ -8,8 +8,8 @@ const Phonetic = ({ phoneticText }) => {
   );
 };
 
-Phonetic.propTypes = {
+WordPhonetic.propTypes = {
   phoneticText: PropTypes.string.isRequired
 };
 
-export default Phonetic;
+export default WordPhonetic;

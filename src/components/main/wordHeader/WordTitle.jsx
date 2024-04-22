@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Title = ({ title }) => {
+const WordTitle = ({ title }) => {
   return (
     <h1 className="col-start-1 col-end-2 row-start-1 row-end-2 mb-[8px] text-headingMobileL dark:text-white">
       {title}
@@ -8,8 +8,8 @@ const Title = ({ title }) => {
   );
 };
 
-Title.propTypes = {
+WordTitle.propTypes = {
   title: PropTypes.string.isRequired
 };
 
-export default Title;
+export default WordTitle;

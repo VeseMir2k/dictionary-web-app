@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const Audio = ({ phoneticAudio }) => {
+const WordAudio = ({ phoneticAudio }) => {
   const [isPlay, setIsPlay] = useState(false);
 
   const togglePlay = () => {
@@ -43,8 +43,8 @@ const Audio = ({ phoneticAudio }) => {
   );
 };
 
-Audio.propTypes = {
+WordAudio.propTypes = {
   phoneticAudio: PropTypes.string.isRequired
 };
 
-export default Audio;
+export default WordAudio;
