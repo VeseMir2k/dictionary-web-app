@@ -3,8 +3,8 @@ import SectionDivider from './SectionDivider';
 
 const SectionTitle = ({ title }) => {
   return (
-    <div className="flex">
-      <h2>{title}</h2>
+    <div className="flex items-center">
+      <h2 className="text-[18px] font-bold italic text-textColorPrimary">{title}</h2>
       <SectionDivider />
     </div>
   );

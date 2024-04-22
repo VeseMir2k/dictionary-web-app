@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { SearchContext } from '../../context/AppContext';
 import WordHeader from './wordHeader';
+import WordNoun from './wordNoun';
 
 const Main = () => {
   const { apiResults } = useContext(SearchContext);
@@ -9,6 +10,7 @@ const Main = () => {
     !apiResults.length || (
       <main>
         <WordHeader />
+        <WordNoun />
       </main>
     )
   );

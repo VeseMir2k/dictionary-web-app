@@ -12,7 +12,7 @@ const WordHeader = () => {
   );
 
   return (
-    <div className="mt-[24px] grid">
+    <div className="mb-[32px] mt-[24px] grid">
       <WordTitle title={apiResults[0].word} />
       {!phonetic.length || (
         <>
