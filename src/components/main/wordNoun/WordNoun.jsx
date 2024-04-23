@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { SearchContext } from '../../../context/AppContext';
+import MeaningTitle from '../MeaningTitle';
 import SectionTitle from '../sectionTitle';
 
 const WordNoun = () => {
@@ -18,6 +19,7 @@ const WordNoun = () => {
   return (
     <section>
       <SectionTitle title="noun" />
+      <MeaningTitle />
       <ul className="list-inside list-disc">{definitions}</ul>
     </section>
   );
