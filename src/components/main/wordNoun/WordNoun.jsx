@@ -10,7 +10,7 @@ const WordNoun = () => {
   const definitions = noun[0].definitions.map((item, index) => (
     <li
       key={index}
-      className="before:content mb-[13px] flex text-textColorPrimary before:mr-[20px] before:mt-[9px] before:size-[5px] before:bg-purple before:pl-[5px]">
+      className="before:content mb-[13px] flex text-textColorPrimary before:mr-[20px] before:mt-[9px] before:size-[5px] before:rounded-[50%] before:bg-purple before:pl-[5px]">
       <p className="text-bodyMobileM">{item.definition}</p>
     </li>
   ));
