@@ -2,15 +2,17 @@ import { useContext, useEffect, useState } from 'react';
 import { SearchContext } from '../../../context/AppContext';
 import MeaningTitle from '../MeaningTitle';
 import SectionTitle from '../sectionTitle';
+import WordNounSynonyms from './WordNounSynonyms';
 
 const WordNoun = () => {
   const { apiResults } = useContext(SearchContext);
   const [definitions, setDefinitions] = useState([]);
+  const [synonyms, setSynonyms] = useState([]);
 
   useEffect(() => {
     const noun = apiResults[0].meanings.filter((item) => item.partOfSpeech === 'noun');
-
     setDefinitions([]);
+    setSynonyms([]);
 
     if (noun.length > 0) {
       const nounDefinitions = noun[0].definitions.map((item, index) => (
@@ -21,15 +23,19 @@ const WordNoun = () => {
         </li>
       ));
       setDefinitions(nounDefinitions);
+
+      const nounSynonyms = noun[0].synonyms.map((item) => item);
+      setSynonyms(nounSynonyms);
     }
   }, [apiResults]);
 
   return (
-    definitions || (
+    definitions.length > 0 && (
       <section>
         <SectionTitle title="noun" />
         <MeaningTitle />
         <ul className="list-inside list-disc">{definitions}</ul>
+        {synonyms.length > 0 && <WordNounSynonyms synonyms={synonyms} />}
       </section>
     )
   );
