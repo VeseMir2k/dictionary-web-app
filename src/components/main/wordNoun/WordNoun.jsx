@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { SearchContext } from '../../../context/AppContext';
 import MeaningTitle from '../MeaningTitle';
 import SectionTitle from '../sectionTitle';
+import WordDefinitionsList from '../wordDefinitionsList/WordDefinitionsList';
 import WordNounSynonyms from './WordNounSynonyms';
-import WordNounDefinitionsList from './wordNounDefinitionsList/WordNounDefinitionsList';
 
 const WordNoun = () => {
   const { apiResults } = useContext(SearchContext);
@@ -29,7 +29,7 @@ const WordNoun = () => {
       <section>
         <SectionTitle title="noun" />
         <MeaningTitle />
-        <WordNounDefinitionsList definitions={definitions} />
+        <WordDefinitionsList definitions={definitions} />
         {synonyms.length > 0 && <WordNounSynonyms synonyms={synonyms} />}
       </section>
     )

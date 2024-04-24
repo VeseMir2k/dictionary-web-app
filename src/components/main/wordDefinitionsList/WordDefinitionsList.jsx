@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import WordNounDefinitionsListItem from './WordNounDefinitionsListItem';
+import WordNounDefinitionsListItem from './WordDefinitionsListItem';
 
-const WordNounDefinitionsList = ({ definitions }) => {
+const WordDefinitionsList = ({ definitions }) => {
   const definitionItems = definitions.map((item, index) => (
     <WordNounDefinitionsListItem key={index} definition={item} />
   ));
@@ -9,8 +9,8 @@ const WordNounDefinitionsList = ({ definitions }) => {
   return <ul className="list-inside list-disc">{definitionItems}</ul>;
 };
 
-WordNounDefinitionsList.propTypes = {
+WordDefinitionsList.propTypes = {
   definitions: PropTypes.array.isRequired
 };
 
-export default WordNounDefinitionsList;
+export default WordDefinitionsList;
