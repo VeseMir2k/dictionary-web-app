@@ -3,6 +3,7 @@ import { SearchContext } from '../../../context/AppContext';
 import MeaningTitle from '../MeaningTitle';
 import SectionTitle from '../sectionTitle';
 import WordNounSynonyms from './WordNounSynonyms';
+import WordNounDefinitionsList from './wordNounDefinitionsList/WordNounDefinitionsList';
 
 const WordNoun = () => {
   const { apiResults } = useContext(SearchContext);
@@ -15,13 +16,7 @@ const WordNoun = () => {
     setSynonyms([]);
 
     if (noun.length > 0) {
-      const nounDefinitions = noun[0].definitions.map((item, index) => (
-        <li
-          key={index}
-          className="before:content mb-[13px] flex text-textColorPrimary before:mr-[20px] before:mt-[9px] before:size-[5px] before:rounded-[50%] before:bg-purple before:pl-[5px] last-of-type:mb-0">
-          <p className="text-bodyMobileM dark:text-white">{item.definition}</p>
-        </li>
-      ));
+      const nounDefinitions = noun[0].definitions.map((item) => item.definition);
       setDefinitions(nounDefinitions);
 
       const nounSynonyms = noun[0].synonyms.map((item) => item);
@@ -34,7 +29,7 @@ const WordNoun = () => {
       <section>
         <SectionTitle title="noun" />
         <MeaningTitle />
-        <ul className="list-inside list-disc">{definitions}</ul>
+        <WordNounDefinitionsList definitions={definitions} />
         {synonyms.length > 0 && <WordNounSynonyms synonyms={synonyms} />}
       </section>
     )
