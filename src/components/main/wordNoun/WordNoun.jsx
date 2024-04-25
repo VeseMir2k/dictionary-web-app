@@ -16,7 +16,7 @@ const WordNoun = () => {
     setSynonyms([]);
 
     if (noun.length > 0) {
-      const nounDefinitions = noun[0].definitions.map((item) => item.definition);
+      const nounDefinitions = noun[0].definitions.map((item) => item);
       setDefinitions(nounDefinitions);
 
       const nounSynonyms = noun[0].synonyms.map((item) => item);
@@ -26,10 +26,10 @@ const WordNoun = () => {
 
   return (
     definitions.length > 0 && (
-      <section>
+      <section className="pb-[32px]">
         <SectionTitle title="noun" />
         <MeaningTitle />
-        <WordDefinitionsList definitions={definitions} />
+        <WordDefinitionsList wordDefinitions={definitions} />
         {synonyms.length > 0 && <WordNounSynonyms synonyms={synonyms} />}
       </section>
     )
