@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { SearchContext } from '../../../context/AppContext';
+import WordSourcesUrl from './WordSourcesUrl';
 
 const WordSources = () => {
   const { apiResults } = useContext(SearchContext);
@@ -10,12 +11,15 @@ const WordSources = () => {
     setSources(sourcesUrls);
   }, [apiResults]);
 
+  const urls = sources.map((item, index) => {
+    console.log(item);
+    return <WordSourcesUrl key={index} url={item} />;
+  });
+
   return (
-    <section className="text-bodyS">
-      <h4 className="mb-[8px] text-textColorSecondary">Source</h4>
-      <a href={sources} className="mb-[5px] text-textColorPrimary">
-        {sources}
-      </a>
+    <section className="flex flex-col text-bodyS">
+      <h4 className="mb-[8px] text-textColorSecondary underline">Source</h4>
+      {urls}
     </section>
   );
 };
