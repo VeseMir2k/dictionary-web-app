@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import WordNounDefinitionsListItem from './WordDefinitionsListItem';
 
-const WordDefinitionsList = ({ definitions }) => {
-  const definitionItems = definitions.map((item, index) => (
-    <WordNounDefinitionsListItem key={index} definition={item} />
+const WordDefinitionsList = ({ wordDefinitions }) => {
+  const wordDefinitionItems = wordDefinitions.map((item, index) => (
+    <WordNounDefinitionsListItem key={index} wordDefinition={item} />
   ));
 
-  return <ul className="list-inside list-disc">{definitionItems}</ul>;
+  return <ul className="list-inside list-disc">{wordDefinitionItems}</ul>;
 };
 
 WordDefinitionsList.propTypes = {
-  definitions: PropTypes.array.isRequired
+  wordDefinitions: PropTypes.array.isRequired
 };
 
 export default WordDefinitionsList;
