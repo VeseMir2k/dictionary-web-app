@@ -8,7 +8,7 @@ const SearchInput = () => {
     <div className="relative">
       <input
         value={valueInput}
-        placeholder="Keyboard"
+        placeholder="Search for any word…"
         onChange={(event) => getValueInput(event)}
         className="search-input min-w-full rounded-[15px] border-[1.5px] border-transparent bg-backgroundSecondary px-[24px] py-[14px] text-[16px] font-bold leading-[20px] focus:border-[1.5px] focus:border-purple focus:outline-none dark:bg-backgroundSecondaryDark dark:text-white"
         type="text"
