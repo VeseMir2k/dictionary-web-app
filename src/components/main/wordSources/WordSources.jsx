@@ -12,7 +12,6 @@ const WordSources = () => {
   }, [apiResults]);
 
   const urls = sources.map((item, index) => {
-    console.log(item);
     return <WordSourcesUrl key={index} url={item} />;
   });
 

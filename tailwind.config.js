@@ -29,6 +29,7 @@ export default {
       backgroundPrimaryDark: '#050505',
       backgroundSecondaryDark: '#1f1f1f',
       dot: '#8F19E8',
+      error: '#ff5252',
       divider: '#e9e9e9',
       dividerDark: '#3a3a3a',
       iconColor: '#838383',

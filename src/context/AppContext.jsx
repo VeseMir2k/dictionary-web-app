@@ -60,9 +60,16 @@ export const SearchProvider = ({ children }) => {
   };
 
   const fetchData = useCallback(async () => {
-    const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${valueInput}`);
-    const json = await data.json();
-    setApiResults(json);
+    if (valueInput.length !== 0) {
+      removeClass(document.querySelector('.search-input'), 'error');
+      addClass(document.querySelector('.error-message'), 'hidden');
+      const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${valueInput}`);
+      const json = await data.json();
+      setApiResults(json);
+    } else {
+      addClass(document.querySelector('.search-input'), 'error');
+      removeClass(document.querySelector('.error-message'), 'hidden');
+    }
   }, [valueInput]);
 
   const handleEnterKeyDown = useCallback(
