@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useCallback, useEffect, useState } from 'react';
 import { addClass, removeClass, setNameFontButton } from '../util';
-
 export const FontContext = createContext();
 export const ThemeContext = createContext();
 export const SearchContext = createContext();
@@ -53,7 +52,9 @@ export const ThemeProvider = ({ children }) => {
 
 export const SearchProvider = ({ children }) => {
   const [valueInput, setValueInput] = useState('keyboard');
+  const [valueSearch, setValueSearch] = useState(valueInput);
   const [apiResults, setApiResults] = useState([]);
+  const [isApiResults, setIsApiResults] = useState(true);
 
   const getValueInput = (event) => {
     setValueInput(event.target.value);
@@ -63,27 +64,38 @@ export const SearchProvider = ({ children }) => {
     if (valueInput.length !== 0) {
       removeClass(document.querySelector('.search-input'), 'error');
       addClass(document.querySelector('.error-message'), 'hidden');
-      const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${valueInput}`);
-      const json = await data.json();
-      setApiResults(json);
+
+      try {
+        const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${valueSearch}`);
+        if (!data.ok) {
+          throw new Error('Error');
+        }
+        const json = await data.json();
+        setApiResults(json);
+      } catch (error) {
+        console.error('Error message:', error);
+      }
     } else {
       addClass(document.querySelector('.search-input'), 'error');
       removeClass(document.querySelector('.error-message'), 'hidden');
     }
-  }, [valueInput]);
+  }, [valueSearch]);
 
-  const handleEnterKeyDown = useCallback(
-    (event) => {
+  const handleEnterKeyDown =
+    ((event) => {
       if (event.key === 'Enter') {
-        fetchData();
+        setValueSearch(valueInput);
       }
     },
-    [fetchData]
-  );
+    [valueInput]);
+
+  const handleButton = () => {
+    setValueSearch(valueInput);
+  };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleEnterKeyDown);
@@ -91,7 +103,7 @@ export const SearchProvider = ({ children }) => {
   }, [handleEnterKeyDown]);
 
   return (
-    <SearchContext.Provider value={{ fetchData, valueInput, getValueInput, apiResults }}>
+    <SearchContext.Provider value={{ handleButton, valueInput, getValueInput, apiResults }}>
       {children}
     </SearchContext.Provider>
   );

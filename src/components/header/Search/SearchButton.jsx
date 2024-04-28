@@ -2,11 +2,7 @@ import { useContext } from 'react';
 import { SearchContext } from '../../../context/AppContext';
 
 const SearchButton = () => {
-  const { fetchData } = useContext(SearchContext);
-
-  const handleButton = () => {
-    fetchData();
-  };
+  const { handleButton } = useContext(SearchContext);
 
   return (
     <button
