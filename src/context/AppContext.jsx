@@ -68,9 +68,11 @@ export const SearchProvider = ({ children }) => {
       try {
         const data = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${valueSearch}`);
         if (!data.ok) {
+          setIsApiResults(false);
           throw new Error('Error');
         }
         const json = await data.json();
+        setIsApiResults(true);
         setApiResults(json);
       } catch (error) {
         console.error('Error message:', error);
@@ -81,13 +83,14 @@ export const SearchProvider = ({ children }) => {
     }
   }, [valueSearch]);
 
-  const handleEnterKeyDown =
-    ((event) => {
+  const handleEnterKeyDown = useCallback(
+    (event) => {
       if (event.key === 'Enter') {
         setValueSearch(valueInput);
       }
     },
-    [valueInput]);
+    [valueInput]
+  );
 
   const handleButton = () => {
     setValueSearch(valueInput);
@@ -103,7 +106,8 @@ export const SearchProvider = ({ children }) => {
   }, [handleEnterKeyDown]);
 
   return (
-    <SearchContext.Provider value={{ handleButton, valueInput, getValueInput, apiResults }}>
+    <SearchContext.Provider
+      value={{ isApiResults, handleButton, valueInput, getValueInput, apiResults }}>
       {children}
     </SearchContext.Provider>
   );

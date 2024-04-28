@@ -7,18 +7,26 @@ import WordSources from './wordSources';
 import WordVerb from './wordVerb/WordVerb';
 
 const Main = () => {
-  const { apiResults } = useContext(SearchContext);
+  const { isApiResults, apiResults } = useContext(SearchContext);
 
   return (
-    !apiResults.length || (
-      <main>
-        <WordHeader />
-        <WordNoun />
-        <WordVerb />
-        <HorizontalDivider />
-        <WordSources />
-      </main>
-    )
+    <main>
+      {isApiResults ? (
+        !apiResults.length || (
+          <>
+            <WordHeader />
+            <WordNoun />
+            <WordVerb />
+            <HorizontalDivider />
+            <WordSources />
+          </>
+        )
+      ) : (
+        <>
+          <p>error</p>
+        </>
+      )}
+    </main>
   );
 };
 
