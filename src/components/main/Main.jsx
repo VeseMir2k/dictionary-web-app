@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { SearchContext } from '../../context/AppContext';
 import HorizontalDivider from './HorizontalDivider';
+import NotFound from './NotFound';
 import WordHeader from './wordHeader';
 import WordNoun from './wordNoun';
 import WordSources from './wordSources';
@@ -22,9 +23,7 @@ const Main = () => {
           </>
         )
       ) : (
-        <>
-          <p>error</p>
-        </>
+        <NotFound />
       )}
     </main>
   );
