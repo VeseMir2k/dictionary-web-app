@@ -3,14 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const NotFound = () => {
   return (
-    <div className="text-center">
-      <FontAwesomeIcon
-        className="mt-[50px] text-[64px] text-[#ffd500] text-textColorPrimary"
-        icon={faFaceFrown}
-      />
+    <div className="text-center  text-textColorPrimary">
+      <FontAwesomeIcon className="mt-[50px] text-[64px] text-[#ffd500]" icon={faFaceFrown} />
       <h3 className="mt-[30px] text-headingS font-bold dark:text-white">No Definitions Found</h3>
       <p className="mt-[20px] text-textColorSecondary">
-        Sorry pal, we couldn't find definitions for the word you were looking for. You can try the
+        Sorry pal, we couldn`t find definitions for the word you were looking for. You can try the
         search again at later time or head to the web instead.
       </p>
     </div>
