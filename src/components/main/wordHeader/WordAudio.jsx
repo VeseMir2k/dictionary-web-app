@@ -35,9 +35,9 @@ const WordAudio = ({ phoneticAudio }) => {
         onEnded={handleAudioEnd}
       />
       <button
-        className="col-start-2 col-end-3 row-start-1 row-end-3 flex h-[48px] w-[48px]  items-center justify-center self-center justify-self-end rounded-[50%] bg-purple bg-opacity-25 text-purple  hover:bg-opacity-100 hover:text-white"
+        className="col-start-2 col-end-3 row-start-1 row-end-3 flex size-[48px] items-center  justify-center self-center justify-self-end rounded-[50%] bg-purple bg-opacity-25 text-purple hover:bg-opacity-100  hover:text-white md:size-[75px]"
         onClick={handlePlayButton}>
-        <FontAwesomeIcon className="text-[17px]" icon={isPlay ? faStop : faPlay} />
+        <FontAwesomeIcon className="text-[17px] md:text-[26px]" icon={isPlay ? faStop : faPlay} />
       </button>
     </>
   );
