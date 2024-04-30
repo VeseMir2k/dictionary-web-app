@@ -28,7 +28,7 @@ const SelectFontsOptions = ({ isShow }) => {
 
   return (
     <ul
-      className={`${showOptionsClass} dark:bg-backgroundSecondaryDark absolute right-0 top-[30px] z-20 w-[120px] rounded-[16px] bg-white p-[16px] text-[14px] leading-[24px] shadow-[0_5px_30px_0_rgba(0,0,0,0.1)] dark:text-white dark:shadow-purple`}>
+      className={`${showOptionsClass} absolute right-0 top-[30px] z-20 w-[120px] rounded-[16px] bg-white p-[16px] text-[14px] leading-[24px] shadow-[0_5px_30px_0_rgba(0,0,0,0.1)] md:w-[140px] md:text-[18px] dark:bg-backgroundSecondaryDark dark:text-white dark:shadow-purple`}>
       {optionsList}
     </ul>
   );

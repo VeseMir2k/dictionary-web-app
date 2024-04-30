@@ -1,7 +1,7 @@
 const LogoSvg = () => {
   return (
     <svg
-      className="mr-auto w-[28px] stroke-iconColor"
+      className="mr-auto h-[32px] w-[28px] stroke-iconColor md:h-[38px] md:w-[32px]"
       xmlns="http://www.w3.org/2000/svg"
       width="34"
       height="38"
