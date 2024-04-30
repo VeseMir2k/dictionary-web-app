@@ -10,10 +10,10 @@ const SearchInput = () => {
         value={valueInput}
         placeholder="Search for any word…"
         onChange={(event) => getValueInput(event)}
-        className="search-input min-w-full rounded-[15px] border-[1.5px] border-transparent bg-backgroundSecondary px-[24px] py-[14px] text-[16px] font-bold leading-[20px] focus:border-[1.5px] focus:border-purple focus:outline-none dark:bg-backgroundSecondaryDark dark:text-white"
+        className="search-input min-w-full rounded-[15px] border-[1.5px] border-transparent bg-backgroundSecondary px-[24px] py-[14px] text-[16px] font-bold leading-[20px] focus:border-[1.5px] focus:border-purple focus:outline-none md:py-[22px] md:text-[20px] dark:bg-backgroundSecondaryDark dark:text-white"
         type="text"
       />
-      <span className="error-message text-error absolute bottom-[-21px] left-[5px] hidden text-[14px]">
+      <span className="error-message absolute bottom-[-21px] left-[5px] hidden text-[14px] text-error">
         Whoops, can’t be empty…
       </span>
     </div>
