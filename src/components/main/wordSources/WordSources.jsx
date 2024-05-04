@@ -16,8 +16,8 @@ const WordSources = () => {
   });
 
   return (
-    <section className="flex flex-col text-bodyS">
-      <h4 className="mb-[8px] text-textColorSecondary underline">Source</h4>
+    <section className="flex flex-col text-bodyS md:flex-row md:text-bodyS">
+      <h4 className="mb-[8px] text-textColorSecondary underline md:m-0 md:mr-[20px]">Source</h4>
       {urls}
     </section>
   );
