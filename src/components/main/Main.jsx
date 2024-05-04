@@ -11,7 +11,7 @@ const Main = () => {
   const { isApiResults, apiResults } = useContext(SearchContext);
 
   return (
-    <main>
+    <main className="md:w-[737px]">
       {isApiResults ? (
         !apiResults.length || (
           <>

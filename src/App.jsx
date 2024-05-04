@@ -6,8 +6,10 @@ import { AppProvider } from './context/AppContext';
 const App = () => {
   return (
     <AppProvider>
-      <Header />
-      <Main />
+      <div className="md:flex md:flex-col md:items-center">
+        <Header />
+        <Main />
+      </div>
     </AppProvider>
   );
 };

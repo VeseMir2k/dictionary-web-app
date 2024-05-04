@@ -6,7 +6,7 @@ import VerticalDivider from './VerticalDivider';
 
 const Header = () => {
   return (
-    <header>
+    <header className="md:w-[737px]">
       <div className="flex items-center justify-end">
         <LogoSvg />
         <SelectFont />
