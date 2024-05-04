@@ -3,10 +3,10 @@ import { ThemeContext } from '../../context/AppContext';
 import SearchMoonSvg from './search/SearchMoonSvg';
 
 const ThemeSwitch = () => {
-  const { toggleTheme } = useContext(ThemeContext);
+  const { changeTheme } = useContext(ThemeContext);
 
   const handleButton = () => {
-    toggleTheme();
+    changeTheme();
   };
 
   return (

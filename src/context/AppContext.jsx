@@ -33,21 +33,34 @@ export const FontProvider = ({ children }) => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(false);
+  const [theme, setTheme] = useState('light');
 
-  const toggleTheme = () => {
-    setIsDark((prevState) => !prevState);
+  const changeTheme = () => {
+    if (theme === 'dark') {
+      addClass(document.body, 'dark');
+      localStorage.theme = 'dark';
+      setTheme('light');
+    } else if (theme === 'light') {
+      removeClass(document.body, 'dark');
+      localStorage.theme = 'light';
+      setTheme('dark');
+    }
   };
 
   useEffect(() => {
-    if (isDark) {
+    if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
       addClass(document.body, 'dark');
-    } else {
+      setTheme('light');
+    } else if (localStorage.theme === 'light') {
       removeClass(document.body, 'dark');
+      setTheme('dark');
     }
-  }, [isDark]);
+  }, []);
 
-  return <ThemeContext.Provider value={{ isDark, toggleTheme }}>{children}</ThemeContext.Provider>;
+  return <ThemeContext.Provider value={{ changeTheme }}>{children}</ThemeContext.Provider>;
 };
 
 export const SearchProvider = ({ children }) => {
@@ -81,7 +94,7 @@ export const SearchProvider = ({ children }) => {
       addClass(document.querySelector('.search-input'), 'error');
       removeClass(document.querySelector('.error-message'), 'hidden');
     }
-  }, [valueSearch]);
+  }, [valueSearch, valueInput.length]);
 
   const handleEnterKeyDown = useCallback(
     (event) => {
