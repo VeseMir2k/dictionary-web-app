@@ -1,5 +1,5 @@
 import LogoSvg from './LogoSvg';
-import Search from './search/Search';
+import Search from './Search';
 import SelectFont from './selectFont/SelectFont';
 import ThemeSwitch from './ThemeSwitch';
 import VerticalDivider from './VerticalDivider';

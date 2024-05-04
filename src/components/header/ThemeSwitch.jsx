@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/AppContext';
-import SearchMoonSvg from './search/SearchMoonSvg';
+import SearchMoonSvg from './Search/SearchMoonSvg';
 
 const ThemeSwitch = () => {
   const { changeTheme } = useContext(ThemeContext);
