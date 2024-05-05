@@ -4,7 +4,7 @@ import SectionDivider from './SectionDivider';
 const SectionTitle = ({ title }) => {
   return (
     <div className="mb-[32px] flex items-center">
-      <h2 className="text-[18px] font-bold italic text-textColorPrimary md:text-headingM md:font-normal dark:text-white">
+      <h2 className="text-[18px] font-bold italic text-textColorPrimary md:text-headingM dark:text-white">
         {title}
       </h2>
       <SectionDivider />
